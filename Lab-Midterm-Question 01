@@ -1,0 +1,50 @@
+Name: Muhammad Ahmed 
+Reg No: FA20-BCS-036
+
+
+Question No 01
+Briefly describe the regex library of C#
+Solution:
+The regular expression (regex) library in C# is provided by the System.Text.RegularExpressions namespace, which contains classes and methods for working with regular expressions. Here's a brief overview along with examples:
+•	Regex Class: The Regex class is the core of C#'s regex library. It provides methods for pattern matching and searching within strings.
+	Example:
+using System;
+using System.Text.RegularExpressions;
+class Program {
+    static void Main() {
+        string input = "Hello, 12345";
+        string pattern = @"\d+"; // Matches one or more digits
+
+        // Match and print the first match
+        Match match = Regex.Match(input, pattern);
+        if (match.Success) {
+            Console.WriteLine(match.Value); // Output: 12345
+        }
+
+        // Find and print all matches
+        MatchCollection matches = Regex.Matches(input, pattern);
+        foreach (Match m in matches) {
+            Console.WriteLine(m.Value); // Output: 12345
+        }
+    }
+}
+•	Regular Expression Patterns: You can create complex patterns using metacharacters and quantifiers. For example, "\d+" matches one or more digits.
+•	Match and MatchCollection: Match represents a single match, while MatchCollection contains multiple matches found in the input string.
+•	Regex Options: You can specify options like case-insensitivity, multi-line mode, etc., using the RegexOptions enum.
+•	Regex.Replace: You can replace matched patterns with a specified replacement string.
+	Example:
+string input = "Hello, 12345";
+string pattern = @"\d+";
+string replacement = "X";
+
+string result = Regex.Replace(input, pattern, replacement);
+// Output: "Hello, X"
+
+•	Regex.Split: Split a string based on a regex pattern.
+
+	Example:
+string input = "apple,banana,cherry";
+string pattern = ",";
+string[] parts = Regex.Split(input, pattern);
+// Output: ["apple", "banana", "cherry"]
+
